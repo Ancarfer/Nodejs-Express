@@ -18,5 +18,6 @@
 #### Instalación de `pg`
 #### Configuración de la conexión a PostgreSQL
 #### Creación de las rutas CRUD en Express
-### ¿Como ver el CRUD?
-## 📝 Ejercicio Práctico  
+### ¿Como ver el CRUD? (Postman, curl)
+## 📝 Prueba  Práctica
+## 📝 Ejercicio para la clase
