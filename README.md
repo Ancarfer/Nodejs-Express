@@ -6,7 +6,8 @@ Node.js es un entorno de ejecución para JavaScript que permite ejecutar código
 Está basado en el motor V8 de Google Chrome y utiliza un modelo de I/O no bloqueante, lo que lo hace ideal para aplicaciones de alta concurrencia, como servidores web y aplicaciones en tiempo real.
 
 ## 2. ¿Qué es Express?
-
+Express.js es un framework para Node.js que facilita la construcción de aplicaciones web y APIs. 
+Proporciona herramientas para manejar rutas, peticiones HTTP, y middleware, haciendo que el desarrollo sea más sencillo y rápido.
 
 ## 3. Instalación de Node.js y Express
 ### Instalación de Node.js
