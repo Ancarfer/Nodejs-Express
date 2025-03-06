@@ -11,6 +11,8 @@ Proporciona herramientas para manejar rutas, peticiones HTTP, y middleware, haci
 
 ## 3. Instalación de Node.js y Express
 ### Instalación de Node.js
+Para instalar Node.js, visita [la página oficial](https://nodejs.org/) y descarga la versión recomendada para la mayoría de los usuarios. Luego, sigue las instrucciones según tu sistema operativo.
+
 ### Instalación de Express
 #### 1. Instalación de Nodemon
 #### 1. Uso de Nodemon: 
