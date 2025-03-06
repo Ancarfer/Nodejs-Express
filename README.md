@@ -14,6 +14,11 @@ Proporciona herramientas para manejar rutas, peticiones HTTP, y middleware, haci
 Para instalar Node.js, visita [la página oficial](https://nodejs.org/) y descarga la versión recomendada para la mayoría de los usuarios. Luego, sigue las instrucciones según tu sistema operativo.
 
 ### Instalación de Express
+Una vez tengas Node.js instalado, puedes crear un proyecto y añadir Express mediante npm (Node Package Manager):
+```bash
+npm init -y
+npm install express
+```
 #### 1. Instalación de Nodemon
 #### 1. Uso de Nodemon: 
 
