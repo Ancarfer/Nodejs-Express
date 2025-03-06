@@ -25,7 +25,10 @@ npm install -g nodemon
 ```
 
 #### 1. Uso de Nodemon: 
-
+Para iniciar tu aplicación con Nodemon, ejecuta:
+```bash
+nodemon app.js
+```
 ## ¿Qué es CRUD?
 #### Implementación de CRUD con Express y PostgreSQL
 #### Instalación de `pg`
