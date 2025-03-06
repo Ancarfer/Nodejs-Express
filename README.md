@@ -20,6 +20,11 @@ npm init -y
 npm install express
 ```
 #### 1. Instalación de Nodemon
+Nodemon es una herramienta que reinicia automáticamente tu servidor cuando detecta cambios en el código:
+```bash
+npm install -g nodemon
+```
+
 #### 1. Uso de Nodemon: 
 
 ## ¿Qué es CRUD?
