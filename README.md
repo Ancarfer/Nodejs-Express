@@ -9,10 +9,10 @@ Utiliza un modelo de I/O no bloqueante, lo que lo hace ideal para aplicaciones d
 Express.js es un framework ligero para Node.js que facilita la construcción de aplicaciones web y APIs. Proporciona herramientas para manejar rutas, peticiones HTTP, y middleware, haciendo que el desarrollo sea más sencillo y rápido.
 
 ## 3. Instalación de Node.js y Express
-### Instalación de Node.js
+### - Instalación de Node.js
 Para instalar Node.js, visita la [página oficial](https://nodejs.org/) y descarga la versión recomendada para la mayoría de los usuarios. Luego, sigue las instrucciones según tu sistema operativo.
 
-### Instalación de Express
+### - Instalación de Express
 Una vez tengas Node.js instalado, puedes crear un proyecto y añadir Express mediante npm (Node Package Manager):
 ```bash
 npm init -y
