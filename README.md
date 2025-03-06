@@ -2,6 +2,7 @@
 
 
 ## ¿Qué es Node.js?
+Node.js es un entorno de ejecución JavaScript basado en eventos, diseñado para manejar múltiples conexiones simultáneas de manera eficiente. Ideal para aplicaciones como Twitter, GitHub, y servicios IoT.
 
 ## 2. ¿Qué es Express?
 
