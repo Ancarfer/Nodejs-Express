@@ -29,7 +29,7 @@ Para iniciar tu aplicación con Nodemon, ejecuta:
 ```bash
 nodemon app.js
 ```
-### Implementación de CRUD con Express y PostgreSQL
+## 4. Implementación de CRUD con Express y PostgreSQL
 #### Instalación de `pg`
 #### Configuración de la conexión a PostgreSQL
 #### Creación de las rutas CRUD en Express
