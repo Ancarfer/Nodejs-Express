@@ -196,6 +196,7 @@ app.delete(`/productos/:id`, async (req, res) => {
     res.json(result.rows);
   } catch (e) {
     console.error(e);
+     res.status(500).json({ error: "Error al eliminar producto" });
   }
 });
 ```
@@ -216,7 +217,7 @@ app.post(`/productos/`, async (req, res) => {
     res.json({ message: "Registro Borrado Correctamente" });
   } catch (e) {
     console.error(e);
-    res.status(500).json({ error: "Error al insertar cliente" });
+    res.status(500).json({ error: "Error al insertar producto" });
   }
 });
 ```
@@ -230,6 +231,7 @@ app.put(`/clientes`, async (req, res) => {
     res.json(result.rows);
   } catch (e) {
     console.error(e);
+    res.status(500).json({ error: "Error al actualizar cliente" });
   }
 });
 ```
@@ -257,10 +259,10 @@ app.put(`/clientes`, async (req, res) => {
   + https://github.com/andresWeitzel/db_supermercado_PostgreSQL.git
 - Configura la conexión con el servidor y BDD
 - Identifica el funcionamiento de las rutas y haz pruebas
-  + http://localhost:3000/supermercado/productos
-  + http://localhost:3000/supermercado/productos
-  + http://localhost:3000/supermercado/productos/2
-  + http://localhost:3000/supermercado/productos/2
+  + http://localhost:3000/productos
+  + http://localhost:3000/productos
+  + http://localhost:3000/productos/2
+  + http://localhost:3000/productos/2
 - Crea una estructura para tu web donde mostrar la información
 - Una vez elegido, comprueba que las rutas funcionan de manera correcta 
 
