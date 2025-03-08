@@ -18,17 +18,69 @@ Una vez tengas Node.js instalado, puedes crear un proyecto y añadir Express med
 npm init -y
 npm install express
 ```
-#### 1. Instalación de Nodemon
+
+
+## 4. Uso de Nodemon + Middleware y estructura del proyecto
+#### 1. ¿Qué es Nodemon? 
 Nodemon es una herramienta que reinicia automáticamente tu servidor cuando detecta cambios en el código:
+- **Instalación de Nodemon:**
 ```bash
 npm install -g nodemon
 ```
 
-#### 1. Uso de Nodemon: 
+- **Uso de Nodemon:**
 Para iniciar tu aplicación con Nodemon, ejecuta:
 ```bash
 nodemon app.js
 ```
+
+#### 2. ¿Qué es Middlewares?
+
+Los middlewares en Express son funciones intermedias que se ejecutan entre la solicitud del cliente y la respuesta del servidor.
+
+```javascript
+const express = require('express');
+const app = express();
+
+// Middleware que se ejecuta en cada petición
+app.use((req, res, next) => {
+    console.log(`Nueva petición: ${req.method} ${req.url}`);
+    next(); // Llama a la siguiente función (sino, la petición se queda bloqueada)
+});
+
+// Ruta de ejemplo
+app.get('/', (req, res) => {
+    res.send('¡Hola, mundo!');
+});
+
+// Levantar el servidor
+app.listen(3000, () => {
+    console.log('Servidor corriendo en http://localhost:3000');
+});
+
+```
+
+#### 3. ¿Para qué sirven los middlewares?
+
+Los middlewares se utilizan para modificar, analizar o controlar las peticiones antes de que lleguen a las rutas finales.
+
+1. Registro de peticiones:
+    - Permiten registrar y analizar todas las solicitudes que llegan al servidor. Esto es útil para depuración o para estadísticas.
+    - Ejemplo: Registrar cada solicitud que entra con el método HTTP y la URL.
+2. Autenticación y autorización:
+    - Permiten verificar si un usuario está autenticado y si tiene permisos para acceder a una ruta específica.
+    - Ejemplo: Verificar un token JWT en las cabeceras para validar si un usuario puede acceder a una ruta protegida.
+3. Procesamiento de datos:
+    - Pueden ser utilizados para analizar o modificar datos. Por ejemplo,
+    - Ejemplo: Usar express.json() para parsear el cuerpo de las solicitudes con formato JSON.
+4. Manejo de errores:
+    - Permiten centralizar y gestionar los errores, haciendo que sea más fácil capturar errores y responder de manera consistente.
+    - Ejemplo: Usar un middleware de error para devolver un mensaje de error personalizado si una ruta no existe.
+
+#### 4. Tipos de middlewares en Express
+
+
+
 ## 4. Implementación de CRUD con Express y PostgreSQL
 #### Instalación de `pg`
 #### Configuración de la conexión a PostgreSQL
