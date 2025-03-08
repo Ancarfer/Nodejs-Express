@@ -1,6 +1,5 @@
 # Node.js + Express
 
-
 ## 1. ¿Qué es Node.js?
 Node.js es un entorno de ejecución de código abierto que permite ejecutar código JavaScript en el servidor. 
 Utiliza un modelo de I/O no bloqueante, lo que lo hace ideal para aplicaciones de alta concurrencia, como servidores web y aplicaciones en tiempo real. Es muy utilizado para desarrollar aplicaciones backend y APIs. Su arquitectura basada en eventos lo hace eficiente para manejar múltiples conexiones simultáneamente.
@@ -19,6 +18,19 @@ npm init -y
 npm install express
 ```
 
+### Estructura de carpetas
+
+``` bash
+my-app/
+  ├── app.js
+  ├── package.json
+  ├── routes/
+  │   └── index.js
+  ├── public/
+  │   └── styles.css
+  └── views/
+      └── index.ejs
+```
 
 ## 4. Uso de Nodemon + Middleware y estructura del proyecto
 #### 1. ¿Qué es Nodemon? 
@@ -47,19 +59,7 @@ app.use((req, res, next) => {
     console.log(`Nueva petición: ${req.method} ${req.url}`);
     next(); // Llama a la siguiente función (sino, la petición se queda bloqueada)
 });
-
-// Ruta de ejemplo
-app.get('/', (req, res) => {
-    res.send('¡Hola, mundo!');
-});
-
-// Levantar el servidor
-app.listen(3000, () => {
-    console.log('Servidor corriendo en http://localhost:3000');
-});
-
 ```
-
 #### 3. ¿Para qué sirven los middlewares?
 
 Los middlewares se utilizan para modificar, analizar o controlar las peticiones antes de que lleguen a las rutas finales.
@@ -79,14 +79,197 @@ Los middlewares se utilizan para modificar, analizar o controlar las peticiones 
 
 #### 4. Tipos de middlewares en Express
 
+**Middleware de aplicación**
+``` javascript
+  app.use((req, res, next) => {
+  console.log('Middleware aplicado a toda la aplicación');
+  next();  // Pasa al siguiente middleware
+});
+```
+**Middleware de ruta**
+``` javascript
+app.get('/user', (req, res, next) => {
+  console.log('Middleware aplicado solo a /user');
+  next();  // Pasa al siguiente middleware o ruta
+});
+```
+**Middleware de error**
+``` javascript
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Algo salió mal!');
+});
+```
+**Middleware de terceros**
+``` javascript
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
+// Middleware de terceros
+app.use(cors());  // Habilitar CORS para solicitudes de otros dominios
+app.use(bodyParser.json());  // Analizar cuerpos JSON
+```
+**Middleware de autenticación y autorización**
+``` javascript
+const checkAuth = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.status(401).send('No autorizado');
+  }
+  next();
+};
 
-## 4. Implementación de CRUD con Express y PostgreSQL
+app.get('/profile', checkAuth, (req, res) => {
+  res.send('Perfil del usuario');
+});
+```
+
+## 4. Implementación de CRUD con `Express y PostgreSQL`
 #### Instalación de `pg`
+
+``` bash
+npm install pg-promise
+```
+
 #### Configuración de la conexión a PostgreSQL
-#### Creación de las rutas CRUD en Express
-### ¿Como ver el CRUD? (Postman, curl)
+
+#### Archivo `pool.js`
+``` javascript
+import pkg from 'pg';
+const { Pool } = pkg;
+
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'supermercado',
+  password: 'admin',
+  port: 5432,
+});
+
+export default pool;
+
+```
+
+#### Creación de las rutas y CRUD en Express
+
+**Archivo `route.js`**
+``` javascript
+import express from "express";
+import pool from "./pool.js"; // Importa la conexión a PostgreSQL
+
+const app = express();
+const PORT = 3000;
+
+```
+
+**method `GET`**
+``` javascript 
+app.get("/productos", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM productos");
+    res.json(result.rows);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Error al obtener productos" });
+  }
+});
+
+app.get("/productos/:id", async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    const result = await pool.query(`SELECT * FROM productos WHERE id = ${id}`);
+    res.json(result.rows);
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Error al obtener productos" });
+  }
+});
+```
+**method `DELETE`**
+``` javascript 
+app.delete(`/productos/:id`, async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    await pool.query(
+      `DELETE FROM productos WHERE id = ${id}`
+    );
+    const result = await pool.query("SELECT * FROM productos");
+    res.json(result.rows);
+  } catch (e) {
+    console.error(e);
+  }
+});
+```
+
+**method `POST`**
+``` javascript 
+app.post(`/productos/`, async (req, res) => {
+  try {
+    await pool.query(`
+      INSERT INTO productos
+      (id_proveedor,codigo, imagen, nombre, marca, tipo, grupo, peso, precio_unidad, stock) VALUES
+      (1,'BET78U9', 'https://http2.mlstatic.com/D_NQ_NP_792586-MLA47682120282_092021-O.webp' ,  
+      'Agua de Mesa sin Gas Nestle Bidon 6.3L', 'Nestle' ,'Bebidas', 'Agua' , 
+      6.3 , 195.60 , 500 );`
+    );
+      const result = await pool.query("SELECT * FROM productos");
+      res.json(result.rows);
+    res.json({ message: "Registro Borrado Correctamente" });
+  } catch (e) {
+    console.error(e);
+    res.status(500).json({ error: "Error al insertar cliente" });
+  }
+});
+```
+**method `PUT`**
+``` javascript 
+app.put(`/clientes`, async (req, res) => {
+  try {
+    const id = parseInt(req.params.id);
+    await pool.query(`update clientes set apellido = 'Aguilera' where ((nombre='Sofia')and(nro_doc='3494758583'));`);
+    const result = await pool.query("SELECT * FROM clientes");
+    res.json(result.rows);
+  } catch (e) {
+    console.error(e);
+  }
+});
+```
+
 ## 📝 Prueba  Práctica
+
+**Necesitaremos instalar la extensión `ThunderClient`**
+
+**Debemos asegurarnos de ejecutar `nodemon ./route.js` previamente**
+
+![ThunderClient](thunder.PNG)
+
+**Crearemos una nueva `Request`**
+
+![Request](request.PNG)
+
+**Resultado de la ruta `/productos`**
+
+![Response](response.PNG)
+
+
 ## 📝 Ejercicio para la clase
 
-#### [Adrian](https://github.com/danadiplas/AJAXGrupo1/blob/main/docs/NodeExpress.md), [Àngel](https://github.com/Tailosrx/grup5/blob/main/docs/ancarfer-nodejs.md), [Arnau](https://gitlab.com/pr-ctiques/grup2-chinook/-/blob/ctrlalt3-main-patch-48403/docs/express.md?ref_type=heads), [Iker](https://github.com/simonquiceno/grupo3/blob/main/docs/Node%2BExpress.md) y [Xavier](https://github.com/Xavier545/M06UF4Grupo4/blob/main/docs/nodejs%2Bexpressjs.md)
+- Clona el repositorio en el cual se encuentra la base de datos de ejemplo
+  + https://github.com/andresWeitzel/db_supermercado_PostgreSQL.git
+- Configura la conexión con el servidor y BDD
+- Identifica el funcionamiento de las rutas y haz pruebas
+  + http://localhost:3000/supermercado/productos
+  + http://localhost:3000/supermercado/productos
+  + http://localhost:3000/supermercado/productos/2
+  + http://localhost:3000/supermercado/productos/2
+- Crea una estructura para tu web donde mostrar la información
+- Una vez elegido, comprueba que las rutas funcionan de manera correcta 
+
+
+#### Contribuciones y aplausos 
+[Adrian](https://github.com/danadiplas/AJAXGrupo1/blob/main/docs/NodeExpress.md), 
+[Àngel](https://github.com/Tailosrx/grup5/blob/main/docs/ancarfer-nodejs.md), 
+[Arnau](https://gitlab.com/pr-ctiques/grup2-chinook/-/blob/ctrlalt3-main-patch-48403/docs/express.md?ref_type=heads), 
+[Iker](https://github.com/simonquiceno/grupo3/blob/main/docs/Node%2BExpress.md) 
+[Xavier](https://github.com/Xavier545/M06UF4Grupo4/blob/main/docs/nodejs%2Bexpressjs.md)
+
+
