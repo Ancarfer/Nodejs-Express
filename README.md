@@ -80,10 +80,12 @@ Los middlewares se utilizan para modificar, analizar o controlar las peticiones 
 #### 4. Tipos de middlewares en Express
 
 **Middleware de aplicación**
+- Ejemplo: Registrar todas las solicitudes que entran al servidor, independientemente de la ruta.
+
 ``` javascript
-  app.use((req, res, next) => {
-  console.log('Middleware aplicado a toda la aplicación');
-  next();  // Pasa al siguiente middleware
+ app.use((req, res, next) => {
+    console.log(`Solicitud recibida: ${req.method} ${req.url}`);
+    next();
 });
 ```
 **Middleware de ruta**
