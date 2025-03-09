@@ -66,16 +66,12 @@ Los middlewares se utilizan para modificar, analizar o controlar las peticiones 
 
 1. Registro de peticiones:
     - Permiten registrar y analizar todas las solicitudes que llegan al servidor. Esto es útil para depuración o para estadísticas.
-    - Ejemplo: Registrar cada solicitud que entra con el método HTTP y la URL.
 2. Autenticación y autorización:
     - Permiten verificar si un usuario está autenticado y si tiene permisos para acceder a una ruta específica.
-    - Ejemplo: Verificar un token JWT en las cabeceras para validar si un usuario puede acceder a una ruta protegida.
 3. Procesamiento de datos:
     - Pueden ser utilizados para analizar o modificar datos. Por ejemplo,
-    - Ejemplo: Usar express.json() para parsear el cuerpo de las solicitudes con formato JSON.
 4. Manejo de errores:
     - Permiten centralizar y gestionar los errores, haciendo que sea más fácil capturar errores y responder de manera consistente.
-    - Ejemplo: Usar un middleware de error para devolver un mensaje de error personalizado si una ruta no existe.
 
 #### 4. Tipos de middlewares en Express
 
