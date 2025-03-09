@@ -99,10 +99,11 @@ app.get('/user', (req, res, next) => {
 });
 ```
 **Middleware de error**
+- Ejemplo: Capturar errores en la aplicación y enviar una respuesta adecuada.
 ``` javascript
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).send('Algo salió mal!');
+    console.error(`Error detectado: ${err.message}`);
+    res.status(500).send('Algo salió mal en el servidor.');
 });
 ```
 **Middleware de terceros**
