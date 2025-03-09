@@ -262,9 +262,11 @@ app.put(`/clientes`, async (req, res) => {
 
 ![Request](request.PNG)
 
-**Resultado de la ruta `/productos`**
+**Resultado de la ruta `/productos` con `GET`**
 
-![Response](response.PNG)
+**Tipos de `method`**
+
+![Method](method.PNG)
 
 
 ## 📝 Ejercicio para la clase
