@@ -132,6 +132,8 @@ npm install pg-promise
 
 #### Configuración de la conexión a PostgreSQL
 
+Para poder hacer la connexion a la base de datos, tendremos que crear un archivo el cual pondremos la configuracion de la base de datos:
+
 #### Archivo `pool.js`
 ``` javascript
 import pkg from 'pg';
