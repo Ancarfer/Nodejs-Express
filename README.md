@@ -124,13 +124,13 @@ next();
 ```
 
 ## 4. Implementación de CRUD con `Express y PostgreSQL`
-#### Instalación de `pg`
+#### - Instalación de `pg`
 
 ``` bash
 npm install pg-promise
 ```
 
-#### Configuración de la conexión a PostgreSQL
+#### - Configuración de la conexión a PostgreSQL
 
 Para poder hacer la connexion a la base de datos, tendremos que crear un archivo el cual pondremos la configuracion de la base de datos:
 
@@ -151,7 +151,7 @@ export default pool;
 
 ```
 
-#### Creación de las rutas y CRUD en Express
+#### - Creación de las rutas y CRUD en Express
 
 **Archivo `route.js`**
 ``` javascript
