@@ -89,10 +89,13 @@ Los middlewares se utilizan para modificar, analizar o controlar las peticiones 
 });
 ```
 **Middleware de ruta**
+- Ejemplo: Registrar cuando un usuario accede a la ruta /user.
 ``` javascript
 app.get('/user', (req, res, next) => {
-  console.log('Middleware aplicado solo a /user');
-  next();  // Pasa al siguiente middleware o ruta
+    console.log('Acceso a la ruta /user');
+    next();
+}, (req, res) => {
+    res.send('Bienvenido al perfil de usuario');
 });
 ```
 **Middleware de error**
