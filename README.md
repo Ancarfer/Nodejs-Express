@@ -245,6 +245,11 @@ app.put(`/clientes`, async (req, res) => {
 });
 ```
 
+**En caso de experimentar algun error tendremos que editar el archivo `package.js`**
+```javascript
+"type": "module"
+```
+
 ## 📝 Prueba  Práctica
 
 **Necesitaremos instalar la extensión `ThunderClient`**
