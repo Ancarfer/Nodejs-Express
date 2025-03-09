@@ -116,17 +116,15 @@ app.use(cors());  // Habilitar CORS para solicitudes de otros dominios
 app.use(bodyParser.json());  // Analizar cuerpos JSON
 ```
 **Middleware de autenticación y autorización**
+- Ejemplo: Registrar intentos de acceso y validar autenticación.
 ``` javascript
 const checkAuth = (req, res, next) => {
   if (!req.isAuthenticated()) {
     return res.status(401).send('No autorizado');
   }
-  next();
+console.log('Usuario autenticado, acceso permitido');
+next();
 };
-
-app.get('/profile', checkAuth, (req, res) => {
-  res.send('Perfil del usuario');
-});
 ```
 
 ## 4. Implementación de CRUD con `Express y PostgreSQL`
