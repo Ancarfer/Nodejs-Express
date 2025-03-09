@@ -168,24 +168,23 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Prueba en http://localhost:${PORT}/productos`);
 });
-```
-
-**method `GET`**
+```**method `GET`**
 ``` javascript 
-app.get("/productos", async (req, res) => {
+app.get("/:tabla/:id", async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM productos");
+    const id = parseInt(req.params.id);
+    const tabla = req.params.tabla;
+    const result = await pool.query(`SELECT * FROM ${tabla} WHERE id = ${id}`);
     res.json(result.rows);
   } catch (e) {
     console.error(e);
     res.status(500).json({ error: "Error al obtener productos" });
   }
 });
-
-app.get("/productos/:id", async (req, res) => {
+app.get("/:tabla", async (req, res) => {
   try {
-    const id = parseInt(req.params.id);
-    const result = await pool.query(`SELECT * FROM productos WHERE id = ${id}`);
+    const tabla = req.params.tabla;
+    const result = await pool.query(`SELECT * FROM ${tabla}`);
     res.json(result.rows);
   } catch (e) {
     console.error(e);
@@ -195,17 +194,17 @@ app.get("/productos/:id", async (req, res) => {
 ```
 **method `DELETE`**
 ``` javascript 
-app.delete(`/productos/:id`, async (req, res) => {
+app.delete(`/:tabla/:id`, async (req, res) => {
   try {
     const id = parseInt(req.params.id);
+    const tabla = req.params.tabla;
     await pool.query(
-      `DELETE FROM productos WHERE id = ${id}`
+      `DELETE FROM ${tabla} WHERE id = ${id}`
     );
     const result = await pool.query("SELECT * FROM productos");
     res.json(result.rows);
   } catch (e) {
     console.error(e);
-     res.status(500).json({ error: "Error al eliminar producto" });
   }
 });
 ```
