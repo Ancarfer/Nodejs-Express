@@ -168,7 +168,8 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Prueba en http://localhost:${PORT}/productos`);
 });
-```**method `GET`**
+```
+**method `GET`**
 ``` javascript 
 app.get("/:tabla/:id", async (req, res) => {
   try {
