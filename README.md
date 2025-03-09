@@ -163,6 +163,13 @@ const PORT = 3000;
 
 ```
 
+**method `LISTEN`**
+``` javascript
+app.listen(PORT, () => {
+  console.log(`Prueba en http://localhost:${PORT}/productos`);
+});
+```
+
 **method `GET`**
 ``` javascript 
 app.get("/productos", async (req, res) => {
