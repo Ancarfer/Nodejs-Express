@@ -107,11 +107,11 @@ app.use((err, req, res, next) => {
 });
 ```
 **Middleware de terceros**
+- Ejemplo: Registrar el uso de middleware de terceros como cors y body-parser.
 ``` javascript
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-// Middleware de terceros
 app.use(cors());  // Habilitar CORS para solicitudes de otros dominios
 app.use(bodyParser.json());  // Analizar cuerpos JSON
 ```
