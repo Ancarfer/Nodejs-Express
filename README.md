@@ -31,8 +31,7 @@ my-app/
   └── views/
       └── index.ejs
 ```
-
-## 4. Uso de Nodemon + Middleware
+### - Uso de Nodemon
 #### 1. ¿Qué es Nodemon? 
 Nodemon es una herramienta que reinicia automáticamente tu servidor cuando detecta cambios en el código:
 - **Instalación de Nodemon:**
@@ -45,8 +44,8 @@ Para iniciar tu aplicación con Nodemon, ejecuta:
 ```bash
 nodemon app.js
 ```
-
-#### 2. ¿Qué es Middlewares?
+## 4. Middleware
+#### 1. ¿Qué es Middlewares?
 
 Los middlewares en Express son funciones intermedias que se ejecutan entre la solicitud del cliente y la respuesta del servidor.
 
@@ -60,7 +59,7 @@ app.use((req, res, next) => {
     next(); // Llama a la siguiente función (sino, la petición se queda bloqueada)
 });
 ```
-#### 3. ¿Para qué sirven los middlewares?
+#### 2. ¿Para qué sirven los middlewares?
 
 Los middlewares se utilizan para modificar, analizar o controlar las peticiones antes de que lleguen a las rutas finales.
 
@@ -73,7 +72,7 @@ Los middlewares se utilizan para modificar, analizar o controlar las peticiones 
 4. Manejo de errores:
     - Permiten centralizar y gestionar los errores, haciendo que sea más fácil capturar errores y responder de manera consistente.
 
-#### 4. Tipos de middlewares en Express
+#### 3. Tipos de middlewares en Express
 
 **Middleware de aplicación**
 - Ejemplo: Registrar todas las solicitudes que entran al servidor, independientemente de la ruta.
