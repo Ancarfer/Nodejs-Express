@@ -122,7 +122,17 @@ console.log('Usuario autenticado, acceso permitido');
 next();
 };
 ```
+------------------
+## ¿QUÉ ES CRUD?
+CRUD es un acrónimo que representa las cuatro operaciones básicas que se pueden realizar en una base de datos o en una aplicación de almacenamiento de datos:
 
+- Create (Crear): Añadir nuevos registros o datos.
+- Read (Leer): Recuperar o consultar datos existentes.
+- Update (Actualizar): Modificar datos existentes.
+- Delete (Eliminar): Eliminar datos existentes.
+
+Estas operaciones son fundamentales en el desarrollo de aplicaciones que gestionan información.
+------------------
 ## 4. Implementación de CRUD con `Express y PostgreSQL`
 #### - Instalación de `pg`
 
@@ -249,6 +259,28 @@ app.put(`/clientes`, async (req, res) => {
 ```javascript
 "type": "module"
 ```
+
+-------------------------
+## ¿Cómo ver el CRUD(Postman, Curl)?
+ Hacer consultas en postman es muy fácil:
+
+ **method `GET`**
+En el método `get` se debe de seleccionar el modo "GET" y escribir la ruta especificada:
+![GET](postman_GET.PNG)
+
+
+  **method `POST`**
+  En el método `post` se debe de seleccionar el modo "POST" y escribir la ruta especificada además de seleccionar el campo "body" en "raw" justo debajo para poner los datos en formato "json":
+![POST](postman_POST.PNG)
+
+
+  **method `PUT`**
+  En el método `put` se debe seleccionar el modo "PUT" y escribir la ruta y el id que quieres actualizar además de seleccionar el campo "body" en "raw" y el formato "json":
+  ![PUT](postman_POST.PNG)
+
+
+
+-------------------------
 
 ## 📝 Prueba  Práctica
 
