@@ -54,7 +54,7 @@ Los middlewares en Express son funciones intermedias que se ejecutan entre la so
 const express = require('express');
 const app = express();
 
-// Middleware que se ejecuta en cada petición
+// Middleware que se ejecuta en cada petición(te muestra todas las peticiones que se hagan)
 app.use((req, res, next) => {
     console.log(`Nueva petición: ${req.method} ${req.url}`);
     next(); // Llama a la siguiente función (sino, la petición se queda bloqueada)
