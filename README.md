@@ -261,41 +261,6 @@ app.put(`/clientes`, async (req, res) => {
 ```
 
 -------------------------
-## ¿Cómo ver el CRUD(Postman, Curl)?
- Hacer consultas en postman es muy fácil:
-
- **method `GET`**
-
-En el método `get` se debe de seleccionar el modo "GET" y escribir la ruta especificada:
-![GET](Postman_GET.png)
-
-
-  **method `POST`**
-
-  En el método `post` se debe de seleccionar el modo "POST" y escribir la ruta especificada además de seleccionar el campo "body" en "raw" justo debajo para poner los datos en formato "json":
-
-![POST](Postman_POST.png)
-
-
-  **method `PUT`**
-  En el método `put` se debe seleccionar el modo "PUT" y escribir la ruta y el id que quieres actualizar además de seleccionar el campo "body" en "raw" y el formato "json":
-
-  ![PUT](postman_PUT.png)
-
-**method `DELETE`**
-
-En el método `delete` se debe seleccionar el modo "DELETE" y escribir la ruta configurada más el id que se quiere borrar.
-Como resultado nos saldrá un "json", pero si en la condición cambiamos la variable result por un mensaje, nos saldrá ese mensaje:
-
-  ![DELETE](Postman_DELETE.png)
-
-
-**method `PATCH`**
-
-En el método `patch` se deberá seleccionar el modo "PATCH" y se escribe la ruta especificada con el id que se quiera modificar. Después se selecciona el campo "body" en "raw" y se modifica el parámetro deseado. Una vez hecho esto se selecciona "send":
-
-![PATCH](Postman_PATCH.png)
--------------------------
 
 ## 📝 Prueba  Práctica
 
