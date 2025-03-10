@@ -266,17 +266,17 @@ app.put(`/clientes`, async (req, res) => {
 
  **method `GET`**
 En el método `get` se debe de seleccionar el modo "GET" y escribir la ruta especificada:
-![GET](postman_GET.png)
+![GET](Postman_GET.png)
 
 
   **method `POST`**
   En el método `post` se debe de seleccionar el modo "POST" y escribir la ruta especificada además de seleccionar el campo "body" en "raw" justo debajo para poner los datos en formato "json":
-![POST](postman_POST.png)
+![POST](Postman_POST.png)
 
 
   **method `PUT`**
   En el método `put` se debe seleccionar el modo "PUT" y escribir la ruta y el id que quieres actualizar además de seleccionar el campo "body" en "raw" y el formato "json":
-  ![PUT](postman_POST.png)
+  ![PUT](Postman_PUT.png)
 
 **method `DELETE`**
 En el método `delete` se debe seleccionar el modo "DELETE" y escribir la ruta configurada más el id que se quiere borrar.
