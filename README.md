@@ -283,7 +283,7 @@ app.put(`/clientes`, async (req, res) => {
 ## 📝 Ejercicio para la clase
 
 - Clona el repositorio en el cual se encuentra la base de datos de ejemplo
-  + [https://github.com/andresWeitzel/db_supermercado_PostgreSQL.git](https://github.com/jOOQ/sakila)
+  + [url](https://github.com/jOOQ/sakila)
 - Configura la conexión con el servidor y BDD
 - Identifica el funcionamiento de las rutas y haz pruebas
   + http://localhost:3000/film
