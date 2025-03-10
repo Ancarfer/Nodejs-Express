@@ -278,7 +278,10 @@ En el método `get` se debe de seleccionar el modo "GET" y escribir la ruta espe
   En el método `put` se debe seleccionar el modo "PUT" y escribir la ruta y el id que quieres actualizar además de seleccionar el campo "body" en "raw" y el formato "json":
   ![PUT](postman_POST.png)
 
-
+**method `DELETE`**
+En el método `delete` se debe seleccionar el modo "DELETE" y escribir la ruta configurada más el id que se quiere borrar.
+Como resultado nos saldrá un "json", pero si en la condición cambiamos la variable result por un mensaje, nos saldrá ese mensaje.
+  ![PUT](postman_DELETE.png)
 
 -------------------------
 
