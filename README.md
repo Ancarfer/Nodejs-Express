@@ -228,36 +228,34 @@ app.delete(`/:tabla/:id`, async (req, res) => {
 
 **method `POST`**
 ``` javascript 
-app.post(`/productos/`, async (req, res) => {
-  try {
-    await pool.query(`
-      INSERT INTO productos
-      (id_proveedor,codigo, imagen, nombre, marca, tipo, grupo, peso, precio_unidad, stock) VALUES
-      (1,'BET78U9', 'https://http2.mlstatic.com/D_NQ_NP_792586-MLA47682120282_092021-O.webp' ,  
-      'Agua de Mesa sin Gas Nestle Bidon 6.3L', 'Nestle' ,'Bebidas', 'Agua' , 
-      6.3 , 195.60 , 500 );`
-    );
-      const result = await pool.query("SELECT * FROM productos");
-      res.json(result.rows);
-    res.json({ message: "Registro Borrado Correctamente" });
-  } catch (e) {
-    console.error(e);
-    res.status(500).json({ error: "Error al insertar producto" });
-  }
+app.post('/postData',(req,res)=>{
+    const {name,id} = req.body
+
+    const insert_query = 'INSERT INTO demotable (name,id) VALUES ($1, $2)'
+    
+    con.query(insert_query, [name,id], (err, result)=>{
+        if(err){
+            res.send(err)
+        }else{
+            console.log(result)
+            res.send("POSTED DATA")
+        }
+    })
 });
 ```
 **method `PUT`**
 ``` javascript 
-app.put(`/clientes`, async (req, res) => {
-  try {
-    const id = parseInt(req.params.id);
-    await pool.query(`update clientes set apellido = 'Aguilera' where ((nombre='Sofia')and(nro_doc='3494758583'));`);
-    const result = await pool.query("SELECT * FROM clientes");
-    res.json(result.rows);
-  } catch (e) {
-    console.error(e);
-    res.status(500).json({ error: "Error al actualizar cliente" });
-  }
+app.put('/update/:id',(req,res)=>{
+    const id=req.params.id;
+    const name=req.body.name;
+    const update_query="UPDATE demotable SET name=$1 WHERE id=$2"
+    con.query(update_query,[name,id],(err,result)=>{
+        if(err){
+            res.send(err)
+        }else{
+            res.send("SUCCESSFULLY UPDATED")
+        }
+    })
 });
 ```
 
