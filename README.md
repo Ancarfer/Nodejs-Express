@@ -31,7 +31,7 @@ my-app/
   └── views/
       └── index.ejs
 ```
-### - Uso de Nodemon
+### Uso de Nodemon
 #### 1. ¿Qué es Nodemon? 
 Nodemon es una herramienta que reinicia automáticamente tu servidor cuando detecta cambios en el código:
 - **Instalación de Nodemon:**
