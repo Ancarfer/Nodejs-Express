@@ -3,11 +3,12 @@
 ## 1. ¿Qué es Node.js?
 Node.js es un entorno de ejecución de código abierto que permite ejecutar código JavaScript en el servidor. 
 Utiliza un modelo de I/O no bloqueante, lo que lo hace ideal para aplicaciones de alta concurrencia, como servidores web y aplicaciones en tiempo real. Es muy utilizado para desarrollar aplicaciones backend y APIs. Su arquitectura basada en eventos lo hace eficiente para manejar múltiples conexiones simultáneamente.
+
 Casos de uso comunes:
-· LinkedIn
-· Netflix
-· Uber
-· PayPal
+- LinkedIn
+- Netflix
+- Uber
+- PayPal
 
 ## 2. ¿Qué es Express?
 Express.js es un framework ligero para Node.js que facilita la construcción de aplicaciones web y APIs. Proporciona herramientas para manejar rutas, peticiones HTTP, y middleware, haciendo que el desarrollo sea más sencillo y rápido.
