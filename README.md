@@ -185,7 +185,8 @@ app.listen(PORT, () => {
 });
 ```
 **method `GET`**
-``` javascript 
+``` javascript
+//Para obtener los datos dinamicamente deberemos recuperar el valor del elemento con value
 app.get("/:tabla/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
