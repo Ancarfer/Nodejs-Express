@@ -295,7 +295,8 @@ app.put(`/clientes`, async (req, res) => {
 
 
 #### Contribuciones y aplausos 
-[Adrian](https://github.com/danadiplas/AJAXGrupo1/blob/main/docs/NodeExpress.md), 
+[Adrian](https://github.com/danadiplas/AJAXGrupo1/blob/main/docs/NodeExpress.md)
+
 [Àngel](https://github.com/Tailosrx/grup5/blob/main/docs/ancarfer-nodejs.md), 
 [Arnau](https://gitlab.com/pr-ctiques/grup2-chinook/-/blob/ctrlalt3-main-patch-48403/docs/express.md?ref_type=heads), 
 [Iker](https://github.com/simonquiceno/grupo3/blob/main/docs/Node%2BExpress.md) y 
