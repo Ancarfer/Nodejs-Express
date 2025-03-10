@@ -266,17 +266,17 @@ app.put(`/clientes`, async (req, res) => {
 
  **method `GET`**
 En el método `get` se debe de seleccionar el modo "GET" y escribir la ruta especificada:
-![GET](postman_GET.PNG)
+![GET](Postman_GET.PNG)
 
 
   **method `POST`**
   En el método `post` se debe de seleccionar el modo "POST" y escribir la ruta especificada además de seleccionar el campo "body" en "raw" justo debajo para poner los datos en formato "json":
-![POST](postman_POST.PNG)
+![POST](Postman_POST.PNG)
 
 
   **method `PUT`**
   En el método `put` se debe seleccionar el modo "PUT" y escribir la ruta y el id que quieres actualizar además de seleccionar el campo "body" en "raw" y el formato "json":
-  ![PUT](postman_POST.PNG)
+  ![PUT](Postman_POST.PNG)
 
 
 
